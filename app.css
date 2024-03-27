@@ -1,0 +1,171 @@
+body{
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    background-attachment: fixed;
+}
+.content{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+.all-tabs{
+    width: 80%;
+    height: 200px;
+    margin:20px auto;
+}
+
+.tab-buttons li{
+    color:#FFFFFF;
+    list-style-type: none;
+    display: inline;
+}
+
+.tab-buttons li a:hover{  
+    background-color:#fc5c7d;
+    border:none;
+} 
+
+.question:hover{
+    background-color: rgb(45, 126, 202);
+}
+
+.question, .answer ,.todo-box{
+     width: 500px;
+     margin: auto;
+}
+
+.answer{
+    padding: 30px;
+}
+
+.question{
+    background-color: rgb(39, 192, 197);
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 2px;
+}
+
+.question ::after{
+    content: "\2B9E";    
+    color:white;
+    float: right;
+    margin-right: 2px;
+}
+
+.active::after{
+    font-family: "Font Awesome 5 Free";
+    content: "\2B9F";
+    color:white
+ } 
+
+.answer{
+    display: none;
+}
+
+.background-box{
+    background-color: rgb(117, 193, 199);
+    height: 100px;
+    width: 200px;
+    margin:50px 50px;
+    font-size:xx-large;
+    font-weight: 700;
+}
+
+.form-box{
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 15px;
+    backdrop-filter: blur(3px);
+    padding: 40px;
+    width:420px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    margin:auto;
+}
+
+.form-box div{
+    margin-bottom: 15px;
+}
+
+.textbox{
+    height: 40px;
+    width:290px;
+    border-radius: 5px;
+    border: 1px solid cyan;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    background-color:rgba(255, 255, 255, 0.25); 
+    color:whitesmoke;
+}
+
+.dropdown{
+    width:250px;
+}
+
+.error{
+    color:red;
+}
+
+.carasoul-box{
+    position: relative;
+    overflow: hidden;
+    width: 80%;
+    margin:auto;
+}
+
+.slides-holder{
+    display:flex;
+    width: auto;
+}
+
+.slides-holder img{
+    height: auto;
+}
+
+.carousal-button{
+    position:absolute;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+.next-button{
+    right:0;
+}
+
+.image-menu{
+   position: relative;
+   width:20px;
+   height: 20px;
+   border-radius: 50px;
+   background-color: rgb(155, 189, 155);
+   top:-200px;
+}
+
+.text-input{
+    width:320px;
+    height:50px;
+    border-radius:5px;
+    color:rgb(3, 3, 3);
+    border:none;
+    background-color: rgb(192, 159, 168);
+}
+
+.task{
+    max-width:500px;
+    font-size: larger;
+    font-weight: 500;
+    text-decoration-color: black !important;
+}
+
+.task-body{
+    height: 100%;
+    width: 100%;
+    background-color: blueviolet;
+    color:white;
+}
+
+.gallery-image{
+    width:350px;
+    height: 250px;
+    padding-left: 80px;
+    padding-top:30px;
+}
