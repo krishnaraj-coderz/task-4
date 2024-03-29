@@ -174,9 +174,6 @@ jQuery(function () {
     $(".gallery a").simpleLightbox({
         "showCounter": false,
     });
-
-
-
 });
 
 // data from data-generator

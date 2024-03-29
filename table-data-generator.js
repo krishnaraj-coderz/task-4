@@ -336,6 +336,7 @@ function generateRandomValidName() {
     return names[Math.floor(Math.random() * 300)]
 }
 
+// making up data
 var data = [];
 for (let i = 0; i < 300; i++) {
     let randomName = generateRandomValidName();

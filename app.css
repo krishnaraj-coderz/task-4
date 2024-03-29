@@ -38,15 +38,15 @@ body {
     margin: auto;
 }
 
-.answer {
-    padding: 30px;
-}
-
 .question {
     background-color: rgb(39, 192, 197);
     cursor: pointer;
     padding: 10px;
     margin-bottom: 2px;
+}
+
+.answer {
+    padding: 30px;
 }
 
 .question ::after {
