@@ -3,7 +3,6 @@ function generatePosition() {
     return positions[Math.floor(Math.random() * positions.length)];
 }
 
-
 function generateNum() {
     let Num = ""
     for (let i = 0; i < 10; i++) {
@@ -30,8 +29,6 @@ function generateSalary() {
 function generateMail() {
     return generateRandomName() + "@email.com";
 }
-
-
 
 function generateRandomValidName() {
     let names = [
@@ -351,7 +348,6 @@ for (let i = 0; i < 300; i++) {
         salary: generateSalary(),
     })
 }
-
 
 console.log(data)
 
