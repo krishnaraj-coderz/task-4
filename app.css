@@ -59,78 +59,6 @@ body{
     color:white
  } 
 
-.answer{
-    display: none;
-}
-
-.background-box{
-    background-color: rgb(117, 193, 199);
-    height: 100px;
-    width: 200px;
-    margin:50px 50px;
-    font-size:xx-large;
-    font-weight: 700;
-}
-
-.form-box{
-    background: rgba(255, 255, 255, 0.25);
-    border-radius: 15px;
-    backdrop-filter: blur(3px);
-    padding: 40px;
-    width:420px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
-    margin:auto;
-}
-
-.form-box div{
-    margin-bottom: 15px;
-}
-
-.textbox{
-    height: 40px;
-    width:290px;
-    border-radius: 5px;
-    border: 1px solid cyan;
-    margin-left: 10px;
-    margin-bottom: 5px;
-    background-color:rgba(255, 255, 255, 0.25); 
-    color:whitesmoke;
-}
-
-.dropdown{
-    width:250px;
-}
-
-.error{
-    color:red;
-}
-
-.carasoul-box{
-    position: relative;
-    overflow: hidden;
-    width: 80%;
-    margin:auto;
-}
-
-.slides-holder{
-    display:flex;
-    width: auto;
-}
-
-.slides-holder img{
-    height: auto;
-}
-
-.carousal-button{
-    position:absolute;
-    top:50%;
-    transform: translateY(-50%);
-}
-
-.next-button{
-    right:0;
-}
-
 .image-menu{
    position: relative;
    width:20px;
@@ -141,31 +69,36 @@ body{
 }
 
 .text-input{
-    width:320px;
-    height:50px;
+    width:220px;
+    height:30px;
     border-radius:5px;
     color:rgb(3, 3, 3);
     border:none;
-    background-color: rgb(192, 159, 168);
+    background-color: rgba(235, 227, 227, 0.945);
 }
 
-.task{
-    max-width:500px;
-    font-size: larger;
-    font-weight: 500;
-    text-decoration-color: black !important;
-}
-
-.task-body{
-    height: 100%;
-    width: 100%;
-    background-color: blueviolet;
-    color:white;
-}
 
 .gallery-image{
     width:350px;
     height: 250px;
     padding-left: 80px;
     padding-top:30px;
+}
+
+td,th{
+    text-align: center;
+    width:200px;
+    height: 33px;
+}
+
+th{
+    background-color: #3f55c4;
+}
+
+tr:nth-child(even){
+    background-color:#ec6580 !important;
+}
+
+tr:hover{
+    background-color: #6de8ec8e !important;
 }
