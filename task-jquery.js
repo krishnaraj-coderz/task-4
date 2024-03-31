@@ -36,116 +36,118 @@ jQuery(function () {
     let currentPage = 1;
     const tableBody = $("#employeeTable").children("tbody")
     $("#employeeTable").ready(function () {
-        const totalData = tableData.length;
+        const totalData = data.length;
+        console.log("totalData",totalData)
         displayData();
-    })
+   
 
-    //slicing only required data for the page
-    function displayData() {
-        let currentStart = ((currentPage - 1) * 15);
-        let currentEnd = currentStart + 15;
-        console.log(currentStart, currentEnd)
-        $(tableBody).html("");
-        $("#paginationNumber").html(currentPage)
-        tableData.slice(currentStart, currentEnd).forEach((data, index) => {
-            $(tableBody).append(
-                `<tr>
-                <td>${data.id}</td>
-                <td>${data.name}</td>
-                <td>${data.number}</td>
-                <td>${data.mail}</td>
-                <td>${data.position}</td>
-                <td>${data.salary}</td>
-            </tr>`
-            )
-            // console.log(index,data.name)
-        })
-    }
-
-    $("#previousPageButton").on("click", function () {
-        if (currentPage > 1) {
-            currentPage--;
-            displayData();
-        }
-    })
-
-    $("#nextPageButton").on("click", function () {
-        if (currentPage < (totalData / 15)) {
-            currentPage++;
-            displayData();
-        }
-    })
-
-    $("#searchText").on("keyup", function searchTable() {
-        let searchData = this.value.toLowerCase();
-        if (searchData == "") {
-            currentPage = 1
-            displayData()
-        }
-        else {
-            $(tableBody).html("")
-            tableData.filter((data, index) => {
-                for (property in data) {
-                    console.log(data[property])
-                    if (data[property].toString().toLowerCase().includes(searchData)) {
-                        $(tableBody).append(
-                            `<tr>
-                                <td>${data.id}</td>
-                                <td>${data.name}</td>
-                                <td>${data.number}</td>
-                                <td>${data.mail}</td>
-                                <td>${data.position}</td>
-                                <td>${data.salary}</td>
-                            </tr>`
-                        )
-                        break;
-                    }
-                }
+        //slicing only required data for the page
+        function displayData() {
+            let currentStart = ((currentPage - 1) * 15);
+            let currentEnd = currentStart + 15;
+            console.log(currentStart, currentEnd)
+            $(tableBody).html("");
+            $("#paginationNumber").html(currentPage)
+            tableData.slice(currentStart, currentEnd).forEach((data, index) => {
+                $(tableBody).append(
+                    `<tr>
+                    <td>${data.id}</td>
+                    <td>${data.name}</td>
+                    <td>${data.number}</td>
+                    <td>${data.mail}</td>
+                    <td>${data.position}</td>
+                    <td>${data.salary}</td>
+                </tr>`
+                )
+                // console.log(index,data.name)
             })
         }
-    })
 
-    $("#exportButton").on("click", function () {
-        tableRows = []
-        tableCols = []
-        $("#employeeTable tr th").each(function () {
-            tableCols.push($(this).html());
-        })
-        tableRows.push(tableCols.join(","));
-        tableData.forEach((rowData) => {
-            tableCols = []
-            for (property in rowData) {
-                tableCols.push(rowData[property])
+        $("#previousPageButton").on("click", function () {
+            if (currentPage > 1) {
+                currentPage--;
+                displayData();
             }
-            tableRows.push(tableCols.join(','))
         })
-        document.write("<pre>" + tableRows.join('\n') + "</pre>")
 
-    })
+        $("#nextPageButton").on("click", function () {
+            console.log(totalData)
+            if (currentPage < (totalData / 15)) {
+                currentPage++;
+                displayData();
+            }
+        })
 
-    $("#employeeTable th").on("click", function () {
-        sortIndex = $("#employeeTable th").index(this)
-        sortProperty = Object.keys(tableData[0])[sortIndex]
-        console.log(sortProperty)
-        if (sortProperty === "id") {
-            tableData.sort((a, b) => {
-                if (a[sortProperty] > b[sortProperty]) {
-                    return 1;
-                }
-                else if (a[sortProperty] < b[sortProperty]) {
-                    return -1;
-                }
-                return 0;
+        $("#searchText").on("keyup", function searchTable() {
+            let searchData = this.value.toLowerCase();
+            if (searchData == "") {
+                currentPage = 1
+                displayData()
+            }
+            else {
+                $(tableBody).html("")
+                tableData.filter((data, index) => {
+                    for (property in data) {
+                        console.log(data[property])
+                        if (data[property].toString().toLowerCase().includes(searchData)) {
+                            $(tableBody).append(
+                                `<tr>
+                                    <td>${data.id}</td>
+                                    <td>${data.name}</td>
+                                    <td>${data.number}</td>
+                                    <td>${data.mail}</td>
+                                    <td>${data.position}</td>
+                                    <td>${data.salary}</td>
+                                </tr>`
+                            )
+                            break;
+                        }
+                    }
+                })
+            }
+        })
+
+        $("#exportButton").on("click", function () {
+            tableRows = []
+            tableCols = []
+            $("#employeeTable tr th").each(function () {
+                tableCols.push($(this).html());
             })
-        }
-        else {
-            tableData.sort((a, b) => {
-                return a[sortProperty].localeCompare(b[sortProperty])
+            tableRows.push(tableCols.join(","));
+            tableData.forEach((rowData) => {
+                tableCols = []
+                for (property in rowData) {
+                    tableCols.push(rowData[property])
+                }
+                tableRows.push(tableCols.join(','))
             })
-        }
-        displayData()
-    })
+            document.write("<pre>" + tableRows.join('\n') + "</pre>")
 
+        })
+
+        $("#employeeTable th").on("click", function () {
+            sortIndex = $("#employeeTable th").index(this)
+            sortProperty = Object.keys(tableData[0])[sortIndex]
+            console.log(sortProperty)
+            if (sortProperty === "id") {
+                tableData.sort((a, b) => {
+                    if (a[sortProperty] > b[sortProperty]) {
+                        return 1;
+                    }
+                    else if (a[sortProperty] < b[sortProperty]) {
+                        return -1;
+                    }
+                    return 0;
+                })
+            }
+            else {
+                tableData.sort((a, b) => {
+                    return a[sortProperty].localeCompare(b[sortProperty])
+                })
+            }
+            displayData()
+        })
+    })
 
     //for tabs
     $("#avatar-button").css("background-color", "#6a82fb");
